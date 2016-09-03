@@ -6,8 +6,8 @@ class Evaluator:
     def __init__(self):
         self.plugins = {}
     def add_plugin(self, block_id, evaluator_class):
-        self.plugins[block_id] = evaluator_class
-    def evaluate(block_id, block):
+        self.plugins[block_id] = evaluator_class()
+    def evaluate(self, block_id, block):
         if block_id in self.plugins.keys():
             return self.plugins[block_id].evaluate(block)
         else:
